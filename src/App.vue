@@ -1,9 +1,16 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <todo-list-main />
+  </div>
 </template>
 
 <script>
+import TodoListMain from "@/components/TodoListMain";
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    TodoListMain
+  }
 }
 </script>
