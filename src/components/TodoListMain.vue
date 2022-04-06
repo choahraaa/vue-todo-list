@@ -7,7 +7,7 @@
     <br>
 
     <ul>
-      <li v-for="todo in todoList" :key="todo.id">
+      <li v-for="todo in todoList" :key="todo.id" :class="todo.checked ? 'checked' : ''">
         {{ todo.text }}
         <button>완료</button>
       </li>
@@ -32,5 +32,7 @@ export default {
 </script>
 
 <style scoped>
-
+.checked {
+  text-decoration: line-through
+}
 </style>
