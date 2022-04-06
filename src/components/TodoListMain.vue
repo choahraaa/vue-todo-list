@@ -9,7 +9,7 @@
     <ul>
       <li v-for="todo in todoList" :key="todo.id" :class="todo.checked ? 'checked' : ''">
         {{ todo.text }}
-        <button>완료</button>
+        <button @click="todoToggle(todo.id)">완료</button>
       </li>
     </ul>
 
@@ -26,6 +26,18 @@ export default {
         {id: 2, checked: false, text: '2번 하기'},
         {id: 3, checked: false, text: '3번 하기'}
       ]
+    }
+  },
+  methods: {
+    todoToggle(id) {
+      var todo = this.todoList.find(todo => todo.id === id);
+      todo.checked = !todo.checked;
+      // if(todo.checked){
+      //   todo.checked = false;
+      //   // true = !false
+      // } else {
+      //   todo.checked = true;
+      // }
     }
   }
 }
