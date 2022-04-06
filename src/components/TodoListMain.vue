@@ -10,6 +10,7 @@
       <li v-for="todo in todoList" :key="todo.id" :class="todo.checked ? 'checked' : ''">
         {{ todo.text }}
         <button @click="todoToggle(todo.id)">완료</button>
+        <button> X </button>
       </li>
     </ul>
 
