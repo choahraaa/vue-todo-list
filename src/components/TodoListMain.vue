@@ -3,12 +3,14 @@
     <h1>TODO LIST</h1><br>
 
     <input type="text" placeholder="입력해주세요.">
-    <button>확인</button><br>
+    <button>확인</button>
+    <br>
 
     <ul>
-      <li>1번 하기 <button>완료</button></li>
-      <li>2번 하기 <button>완료</button></li>
-      <li>3번 하기 <button>완료</button></li>
+      <li v-for="todo in todoList" :key="todo.id">
+        {{ todo.text }}
+        <button>완료</button>
+      </li>
     </ul>
 
   </div>
@@ -16,7 +18,16 @@
 
 <script>
 export default {
-  name: "TodoList"
+  name: "TodoList",
+  data() {
+    return {
+      todoList: [
+        {id: 1, checked: false, text: '1번 하기'},
+        {id: 2, checked: false, text: '2번 하기'},
+        {id: 3, checked: false, text: '3번 하기'}
+      ]
+    }
+  }
 }
 </script>
 
