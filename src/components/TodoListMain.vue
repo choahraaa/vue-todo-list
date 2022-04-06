@@ -2,8 +2,8 @@
   <div>
     <h1>TODO LIST</h1><br>
 
-    <input type="text" placeholder="입력해주세요.">
-    <button>확인</button>
+    <input v-model="todoText" type="text" placeholder="입력해주세요.">
+    <button @click="insertTodo">확인</button>
     <br>
 
     <ul>
@@ -21,6 +21,8 @@ export default {
   name: "TodoList",
   data() {
     return {
+      todoText: '',
+      todo: {},
       todoList: [
         {id: 1, checked: false, text: '1번 하기'},
         {id: 2, checked: false, text: '2번 하기'},
@@ -38,6 +40,15 @@ export default {
       // } else {
       //   todo.checked = true;
       // }
+    },
+    insertTodo() {
+      var todo = {
+        id: this.todoList.length + 1,
+        checked: false,
+        text: this.todoText
+      }
+      this.todoList.push(todo);
+      this.todoText = '';
     }
   }
 }
