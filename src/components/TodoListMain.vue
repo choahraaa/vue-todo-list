@@ -1,11 +1,7 @@
 <template>
   <div>
     <h1>TODO LIST</h1><br>
-
-    <input v-model="todoText" type="text" placeholder="입력해주세요.">
-    <button @click="insertTodo">확인</button>
-    <br>
-
+    <todo-list-input />
     <ul>
       <li v-for="todo in todoList" :key="todo.id" :class="todo.checked ? 'checked' : ''">
         {{ todo.text }}
@@ -18,8 +14,13 @@
 </template>
 
 <script>
+import TodoListInput from "@/components/TodoListInput";
+
 export default {
   name: "TodoList",
+  components: {
+    TodoListInput
+  },
   data() {
     return {
       todoText: '',
