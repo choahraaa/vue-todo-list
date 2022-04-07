@@ -45,8 +45,12 @@ export default {
       this.todoList.splice(todoIndex, 1);
     },
     todoInput(todo) {
+      var maxId = this.todoList.reduce((pre, cur) => {
+        return Math.max(pre, cur.id)
+      }, 0);
+
       var todoAdd = {
-        id: this.todoList.length + 1,
+        id: maxId + 1,
         checked: false,
         text: todo
       }
