@@ -24,3 +24,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.checked {
+  text-decoration: line-through
+}
+</style>
