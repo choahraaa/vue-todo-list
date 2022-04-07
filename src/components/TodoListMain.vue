@@ -10,7 +10,7 @@
       <li v-for="todo in todoList" :key="todo.id" :class="todo.checked ? 'checked' : ''">
         {{ todo.text }}
         <button @click="todoToggle(todo.id)">완료</button>
-        <button> X </button>
+        <button @click="deleteTodo(todo.id)"> X </button>
       </li>
     </ul>
 
@@ -50,6 +50,10 @@ export default {
       }
       this.todoList.push(todo);
       this.todoText = '';
+    },
+    deleteTodo(id) {
+      var todoIndex = this.todoList.findIndex(todo => todo.id === id);
+          this.todoList.splice(todoIndex, 1);
     }
   }
 }
