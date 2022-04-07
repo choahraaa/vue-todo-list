@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>TODO LIST</h1><br>
-    <todo-list-input />
+    <todo-list-input @todoInput="todoInput"/>
     <ul>
       <li v-for="todo in todoList" :key="todo.id" :class="todo.checked ? 'checked' : ''">
         {{ todo.text }}
@@ -9,7 +9,6 @@
         <button @click="deleteTodo(todo.id)"> X </button>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -23,8 +22,6 @@ export default {
   },
   data() {
     return {
-      todoText: '',
-      todo: {},
       todoList: [
         {id: 1, checked: false, text: '1번 하기'},
         {id: 2, checked: false, text: '2번 하기'},
@@ -43,18 +40,17 @@ export default {
       //   todo.checked = true;
       // }
     },
-    insertTodo() {
-      var todo = {
-        id: this.todoList.length + 1,
-        checked: false,
-        text: this.todoText
-      }
-      this.todoList.push(todo);
-      this.todoText = '';
-    },
     deleteTodo(id) {
       var todoIndex = this.todoList.findIndex(todo => todo.id === id);
-          this.todoList.splice(todoIndex, 1);
+      this.todoList.splice(todoIndex, 1);
+    },
+    todoInput(todo) {
+      var todoAdd = {
+        id: this.todoList.length + 1,
+        checked: false,
+        text: todo
+      }
+      this.todoList.push(todoAdd);
     }
   }
 }

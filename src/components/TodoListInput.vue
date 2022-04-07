@@ -8,7 +8,18 @@
 
 <script>
 export default {
-  name: "TodoListInput"
+  name: "TodoListInput",
+  data() {
+    return {
+      todoText: ''
+    }
+  },
+  methods: {
+    insertTodo() {
+      this.$emit('todoInput', this.todoText);
+      this.todoText = '';
+    }
+  }
 }
 </script>
 
