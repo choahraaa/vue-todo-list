@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <todo-list-item v-for="todo in list" :key="todo.id" :todo="todo" />
+      <todo-list-item v-for="todo in list" :key="todo.id" :todo="todo" @itemToggleButton="itemToggleButton" />
     </ul>
   </div>
 </template>
@@ -19,6 +19,11 @@ export default {
       type: Array
     }
   },
+  methods: {
+    itemToggleButton(todo) {
+      this.$emit("todoToggle", todo);
+    }
+  }
 }
 </script>
 

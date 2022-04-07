@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>TODO LIST</h1><br>
-    <todo-list-input @todoInput="todoInput" />
-    <todo-list :list="todoList"/>
+    <todo-list-input @todoInput="todoInput"/>
+    <todo-list :list="todoList" @todoToggle="todoToggle"/>
   </div>
 </template>
 
@@ -26,8 +26,7 @@ export default {
     }
   },
   methods: {
-    todoToggle(id) {
-      var todo = this.todoList.find(todo => todo.id === id);
+    todoToggle(todo) {
       todo.checked = !todo.checked;
       // if(todo.checked){
       //   todo.checked = false;
@@ -56,7 +55,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .checked {
   text-decoration: line-through
 }
