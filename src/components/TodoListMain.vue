@@ -1,24 +1,20 @@
 <template>
   <div>
     <h1>TODO LIST</h1><br>
-    <todo-list-input @todoInput="todoInput"/>
-    <ul>
-      <li v-for="todo in todoList" :key="todo.id" :class="todo.checked ? 'checked' : ''">
-        {{ todo.text }}
-        <button @click="todoToggle(todo.id)">완료</button>
-        <button @click="deleteTodo(todo.id)"> X </button>
-      </li>
-    </ul>
+    <todo-list-input @todoInput="todoInput" />
+    <todo-list :list="todoList"/>
   </div>
 </template>
 
 <script>
 import TodoListInput from "@/components/TodoListInput";
+import TodoList from "@/components/TodoList";
 
 export default {
-  name: "TodoList",
+  name: "TodoListMain",
   components: {
-    TodoListInput
+    TodoListInput,
+    TodoList
   },
   data() {
     return {
