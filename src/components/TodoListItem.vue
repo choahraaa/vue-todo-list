@@ -2,7 +2,7 @@
   <li :class="todo.checked ? 'checked' : ''">
     {{ todo.text }}
     <button @click="toggleButton(todo)">완료</button>
-    <button> X </button>
+    <button @click="deleteButton(todo)"> X </button>
   </li>
 </template>
 
@@ -17,6 +17,9 @@ export default {
   methods: {
     toggleButton(todo) {
       this.$emit('itemToggleButton', todo);
+    },
+    deleteButton(todo) {
+      this.$emit('itemDeleteButton', todo);
     }
   }
 }

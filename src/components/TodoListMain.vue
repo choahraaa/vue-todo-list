@@ -2,7 +2,7 @@
   <div>
     <h1>TODO LIST</h1><br>
     <todo-list-input @todoInput="todoInput"/>
-    <todo-list :list="todoList" @todoToggle="todoToggle"/>
+    <todo-list :list="todoList" @todoToggle="todoToggle" @deleteTodo="deleteTodo"/>
   </div>
 </template>
 
@@ -35,8 +35,8 @@ export default {
       //   todo.checked = true;
       // }
     },
-    deleteTodo(id) {
-      var todoIndex = this.todoList.findIndex(todo => todo.id === id);
+    deleteTodo(todo) {
+      var todoIndex = this.todoList.indexOf(todo);
       this.todoList.splice(todoIndex, 1);
     },
     todoInput(todo) {
