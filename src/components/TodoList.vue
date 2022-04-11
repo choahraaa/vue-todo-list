@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <todo-list-item v-for="todo in list" :key="todo.id" :todo="todo" @itemToggleButton="itemToggleButton" @itemDeleteButton="itemDeleteButton" />
+      <todo-list-item v-for="todo in list" :key="todo.id" :todo="todo" />
     </ul>
   </div>
 </template>
@@ -19,13 +19,6 @@ export default {
       type: Array
     }
   },
-  methods: {
-    itemToggleButton(todo) {
-      this.$emit("todoToggle", todo);
-    },
-    itemDeleteButton(todo) {
-      this.$emit("deleteTodo", todo);
-    }
-  }
+  methods: {}
 }
 </script>

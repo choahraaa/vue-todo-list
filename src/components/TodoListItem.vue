@@ -1,8 +1,8 @@
 <template>
   <li :class="todo.checked ? 'checked' : ''">
     {{ todo.text }}
-    <button @click="toggleButton(todo)">완료</button>
-    <button @click="deleteButton(todo)"> X </button>
+    <button @click="todoToggle(todo)">완료</button>
+    <button @click="deleteTodo(todo)"> X </button>
   </li>
 </template>
 
@@ -15,11 +15,11 @@ export default {
     }
   },
   methods: {
-    toggleButton(todo) {
-      this.$emit('itemToggleButton', todo);
+    todoToggle(todo) {
+      this.$store.dispatch('todoToggle', todo.id);
     },
-    deleteButton(todo) {
-      this.$emit('itemDeleteButton', todo);
+    deleteTodo(todo) {
+      this.$store.dispatch('deleteTodo', todo);
     }
   }
 }
