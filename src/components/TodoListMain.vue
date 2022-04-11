@@ -16,13 +16,9 @@ export default {
     TodoListInput,
     TodoList
   },
-  data() {
-    return {
-      todoList: [
-        {id: 1, checked: false, text: '1번 하기'},
-        {id: 2, checked: false, text: '2번 하기'},
-        {id: 3, checked: false, text: '3번 하기'}
-      ]
+  computed: {
+    todoList() {
+      return this.$store.getters.todoList
     }
   },
   methods: {
