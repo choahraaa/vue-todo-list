@@ -23,29 +23,13 @@ export default {
   },
   methods: {
     todoToggle(todo) {
-      todo.checked = !todo.checked;
-      // if(todo.checked){
-      //   todo.checked = false;
-      //   // true = !false
-      // } else {
-      //   todo.checked = true;
-      // }
+      this.$store.commit('todoToggle', todo.id);
     },
     deleteTodo(todo) {
-      var todoIndex = this.todoList.indexOf(todo);
-      this.todoList.splice(todoIndex, 1);
+      this.$store.commit('deleteTodo', todo);
     },
     todoInput(todo) {
-      var maxId = this.todoList.reduce((pre, cur) => {
-        return Math.max(pre, cur.id)
-      }, 0);
-
-      var todoAdd = {
-        id: maxId + 1,
-        checked: false,
-        text: todo
-      }
-      this.todoList.push(todoAdd);
+      this.$store.commit('todoInput', todo);
     }
   }
 }
