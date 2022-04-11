@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     insertTodo() {
-      this.$emit('todoInput', this.todoText);
+      this.$store.dispatch('todoInput', this.todoText);
       this.todoText = '';
     }
   }

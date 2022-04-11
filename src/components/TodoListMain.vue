@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>TODO LIST</h1><br>
-    <todo-list-input @todoInput="todoInput"/>
+    <todo-list-input/>
     <todo-list :list="todoList" @todoToggle="todoToggle" @deleteTodo="deleteTodo"/>
   </div>
 </template>
@@ -27,9 +27,6 @@ export default {
     },
     deleteTodo(todo) {
       this.$store.dispatch('deleteTodo', todo);
-    },
-    todoInput(todo) {
-      this.$store.dispatch('todoInput', todo);
     }
   }
 }
