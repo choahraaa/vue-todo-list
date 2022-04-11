@@ -23,13 +23,13 @@ export default {
   },
   methods: {
     todoToggle(todo) {
-      this.$store.commit('todoToggle', todo.id);
+      this.$store.dispatch('todoToggle', todo.id);
     },
     deleteTodo(todo) {
-      this.$store.commit('deleteTodo', todo);
+      this.$store.dispatch('deleteTodo', todo);
     },
     todoInput(todo) {
-      this.$store.commit('todoInput', todo);
+      this.$store.dispatch('todoInput', todo);
     }
   }
 }

@@ -38,6 +38,21 @@ export default new Vuex.Store({
             state.todoList.push(todoAdd);
         }
     },
-    actions: {},
+    actions: {
+        todoToggle (context, id) {
+            context.commit('todoToggle', id);
+        },
+        deleteTodo ({commit}, todo) {
+            commit('deleteTodo', todo);
+        },
+        todoInput ({commit}, todo) {
+            if('' === todo) {
+                alert('내용을 입력해주세요.');
+                return false;
+            } else {
+                commit('todoInput', todo);
+            }
+        }
+    },
     modules: {}
 })
